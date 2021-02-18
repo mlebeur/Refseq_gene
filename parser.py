@@ -12,8 +12,8 @@ def load_Refseq_gene(data_folder):
     for rec in dat:
         _id = rec["refseqID"]
         process_key = lambda k: k.replace(" ","_").lower()
-		rec = dict_convert(rec,keyfn=process_key)
-		results.setdefault(_id,[]).append(rec)
+        rec = dict_convert(rec,keyfn=process_key)
+        results.setdefault(_id,[]).append(rec)
     for _id,docs in results.items():
         doc = {"_id": _id, "Refseq_gene" : docs}
         yield doc
